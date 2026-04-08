@@ -39,7 +39,7 @@ const schema = z.object({
     .enum(["icon-ch1", "icon-ch2", "icon-d2", "ecmwf", "gfs"])
     .default("icon-ch2")
     .describe("Wettermodell – icon-ch2 empfohlen (deckt Boden + Höhe in einer Anfrage ab)"),
-  date: z.string().optional().describe("Datum im Format YYYY-MM-DD, default heute"),
+  date: z.string().optional().describe("Datum YYYY-MM-DD – heute oder Zukunft bis +7 Tage möglich (z.B. übermorgen, Samstag). MUSS übergeben werden bei Zukunftsanfragen."),
   spotName: z.string().optional().describe("Name des Spots für bessere Ausgabe"),
 });
 

@@ -22,7 +22,7 @@ const THERMAL_VARS = [
 const schema = z.object({
   lat: z.number().describe("Breitengrad des Ortes"),
   lon: z.number().describe("Längengrad des Ortes"),
-  date: z.string().optional().describe("Datum im Format YYYY-MM-DD, default heute"),
+  date: z.string().optional().describe("Datum YYYY-MM-DD – heute oder Zukunft bis +7 Tage möglich (z.B. übermorgen, Samstag). MUSS übergeben werden bei Zukunftsanfragen."),
   spotName: z.string().optional().describe("Name des Spots"),
 });
 

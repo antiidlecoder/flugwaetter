@@ -19,14 +19,14 @@ const SYNOPTIC_VARS = [
 ];
 
 const schema = z.object({
-  date: z.string().optional().describe("Datum YYYY-MM-DD, default heute"),
+  date: z.string().optional().describe("Datum YYYY-MM-DD – heute oder Zukunft bis +7 Tage möglich (z.B. übermorgen, Samstag). MUSS übergeben werden bei Zukunftsanfragen."),
 });
 
 type Input = z.infer<typeof schema>;
 
 export const getSynopticOverview = tool({
   description:
-    "Gibt eine Übersicht über die Grosswetterlage der Schweiz. Enthält Höhenwind (500hPa/700hPa Strömungsrichtung), Niederschlag, Bewölkung. Verwende dies als ersten Schritt für eine Tageseinschätzung.",
+    "Gibt eine Übersicht über die Grosswetterlage der Schweiz. Enthält Höhenwind (500hPa/700hPa Strömungsrichtung), Niederschlag, Bewölkung. Unterstützt heute und Zukunftsdaten bis +7 Tage. Verwende dies als ersten Schritt für jede Tages- oder Zukunftseinschätzung.",
   inputSchema: zodSchema(schema),
   execute: async (input: Input) => {
     console.log("[get_synoptic_overview] called with:", JSON.stringify(input));

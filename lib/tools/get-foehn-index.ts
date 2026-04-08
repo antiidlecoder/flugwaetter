@@ -4,7 +4,7 @@ import { fetchForDate, getTodayZurich, parseHour } from "@/lib/services/open-met
 import { FOEHN_POINTS, calculateFoehnIndex } from "@/lib/utils/foehn";
 
 const schema = z.object({
-  date: z.string().optional().describe("Datum im Format YYYY-MM-DD, default heute"),
+  date: z.string().optional().describe("Datum YYYY-MM-DD – heute oder Zukunft bis +7 Tage möglich (z.B. übermorgen, Samstag). MUSS übergeben werden bei Zukunftsanfragen."),
 });
 
 type Input = z.infer<typeof schema>;
