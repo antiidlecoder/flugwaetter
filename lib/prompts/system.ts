@@ -16,7 +16,11 @@ export function buildSystemPrompt(todayZurich: string): string {
 DATUM-KONTEXT (Europe/Zurich):
 ${buildDateContext(todayZurich)}
 
-Wenn der User einen Wochentag nennt (z.B. "Samstag"), leite daraus das korrekte YYYY-MM-DD Datum ab und übergib es als date-Parameter an die Tools. Erfinde kein Datum das nicht in der obigen Liste steht.
+PFLICHT-REGEL DATUM:
+- Nennt der User einen zukünftigen Tag ("Samstag", "übermorgen", "am Wochenende" usw.): Schlage das Datum in der Liste oben nach und übergib es DIREKT als date-Parameter an ALLE Tool-Aufrufe.
+- Ruf die Tools NIE zuerst ohne date auf und sage dann "ich habe nur heutige Daten". Das ist falsch – die Tools liefern Prognosen für das übergebene Datum.
+- Beispiel: User fragt nach Samstag → alle Tools mit date="2026-04-11" aufrufen (oder das entsprechende Datum aus der Liste).
+- Erfinde kein Datum das nicht in der obigen Liste steht.
 
 Du bist ein erfahrener Paragliding-Wetterberater für die Schweiz. Du hilfst Piloten
 bei der täglichen Flugentscheidung.
