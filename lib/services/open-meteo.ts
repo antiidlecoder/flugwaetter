@@ -66,6 +66,29 @@ export function parseHour(isoTime: string): number {
 }
 
 export type KeyHourRow = { label: string } & Record<string, number | null | string>;
+export type HourlyRow = { time: string; hour: number } & Record<string, number | null | string>;
+
+/**
+ * Return one row per hour within [fromHour, toHour] (inclusive).
+ * Defaults to flying hours 7–19.
+ */
+export function getHourlyRows(
+  times: string[],
+  values: Record<string, (number | null)[]>,
+  fromHour = 7,
+  toHour = 19
+): HourlyRow[] {
+  return times
+    .map((t, i) => ({ t, i, h: parseHour(t) }))
+    .filter(({ h }) => h >= fromHour && h <= toHour)
+    .map(({ t, i, h }) => {
+      const row: HourlyRow = { time: t, hour: h };
+      for (const key of Object.keys(values)) {
+        row[key] = values[key][i] ?? null;
+      }
+      return row;
+    });
+}
 
 /** Average hourly values into four named time windows */
 export function pickKeyHours(
