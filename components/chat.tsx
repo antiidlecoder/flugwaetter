@@ -98,7 +98,7 @@ export function Chat() {
             ))}
             {isLoading && (
               <div className="flex justify-start mb-4">
-                <Image src="/android-chrome-192x192.png" alt="Bot" width={32} height={32} className="rounded-full mr-2 flex-shrink-0 mt-1" />
+                <Image src="/android-chrome-192x192.png" alt="Bot" width={32} height={32} className="w-8 h-8 rounded-full object-cover flex-shrink-0 mr-2 mt-1" />
                 <div className="bg-gray-800 rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1 items-center">
                   <span className="w-2 h-2 rounded-full bg-gray-500 animate-bounce [animation-delay:0ms]" />
                   <span className="w-2 h-2 rounded-full bg-gray-500 animate-bounce [animation-delay:150ms]" />

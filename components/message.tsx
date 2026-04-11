@@ -16,7 +16,7 @@ export function ChatMessage({ message }: MessageProps) {
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"} mb-4`}>
       {!isUser && (
-        <Image src="/android-chrome-192x192.png" alt="Bot" width={32} height={32} className="rounded-full mr-2 flex-shrink-0 mt-1" />
+        <Image src="/android-chrome-192x192.png" alt="Bot" width={32} height={32} className="w-8 h-8 rounded-full object-cover flex-shrink-0 mr-2 mt-1" />
       )}
       <div
         className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
