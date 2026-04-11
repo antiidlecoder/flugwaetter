@@ -2,6 +2,7 @@
 
 import type { UIMessage } from "ai";
 import { isToolUIPart, isTextUIPart } from "ai";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -15,9 +16,7 @@ export function ChatMessage({ message }: MessageProps) {
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"} mb-4`}>
       {!isUser && (
-        <div className="w-8 h-8 rounded-full bg-sky-600 flex items-center justify-center text-white text-sm font-bold mr-2 flex-shrink-0 mt-1">
-          ⛵
-        </div>
+        <Image src="/android-chrome-192x192.png" alt="Bot" width={32} height={32} className="rounded-full mr-2 flex-shrink-0 mt-1" />
       )}
       <div
         className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${

@@ -2,6 +2,7 @@
 
 import { useChat } from "@ai-sdk/react";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { ChatMessage } from "./message";
 
 const SUGGESTED_QUESTIONS = [
@@ -46,7 +47,7 @@ export function Chat() {
     <div className="flex flex-col h-screen bg-gray-900 text-white">
       {/* Header */}
       <header className="flex items-center gap-3 px-4 py-3 border-b border-gray-700 bg-gray-900/80 backdrop-blur sticky top-0 z-10">
-        <div className="text-2xl">🪂</div>
+        <Image src="/android-chrome-192x192.png" alt="Flugwetter" width={36} height={36} className="rounded-xl" />
         <div>
           <h1 className="font-bold text-base leading-tight">Paragliding Wetterbot Schweiz</h1>
           <p className="text-xs text-gray-400">KI-Flugwetterberater · Open-Meteo · Holfuy</p>
@@ -70,7 +71,7 @@ export function Chat() {
       <main className="flex-1 overflow-y-auto px-4 py-4">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full gap-6 text-center">
-            <div className="text-5xl">🏔️</div>
+            <Image src="/android-chrome-192x192.png" alt="Flugwetter" width={80} height={80} className="rounded-2xl" />
             <div>
               <h2 className="text-xl font-semibold mb-1">Hoi! Wie kann ich helfen?</h2>
               <p className="text-gray-400 text-sm max-w-xs">
@@ -97,9 +98,7 @@ export function Chat() {
             ))}
             {isLoading && (
               <div className="flex justify-start mb-4">
-                <div className="w-8 h-8 rounded-full bg-sky-600 flex items-center justify-center text-white text-sm font-bold mr-2 flex-shrink-0 mt-1">
-                  ⛵
-                </div>
+                <Image src="/android-chrome-192x192.png" alt="Bot" width={32} height={32} className="rounded-full mr-2 flex-shrink-0 mt-1" />
                 <div className="bg-gray-800 rounded-2xl rounded-bl-sm px-4 py-3 flex gap-1 items-center">
                   <span className="w-2 h-2 rounded-full bg-gray-500 animate-bounce [animation-delay:0ms]" />
                   <span className="w-2 h-2 rounded-full bg-gray-500 animate-bounce [animation-delay:150ms]" />
